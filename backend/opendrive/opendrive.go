@@ -456,7 +456,7 @@ func (f *Fs) Move(ctx context.Context, src fs.Object, remote string) (fs.Object,
 			Path:   "/file/move_copy.json",
 		}
 		resp, err = f.srv.CallJSON(ctx, &opts, &copyFileData, &response)
-		return f.shouldRetry(resp, err)
+		return true
 	})
 	if err != nil {
 		return nil, err
